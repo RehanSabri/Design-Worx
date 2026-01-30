@@ -1,0 +1,111 @@
+/* The Floating Capsule Container */
+.mursee-nav {
+  position: fixed;
+  
+  /* 1. Detach from the top */
+  top: 1.5rem; 
+  
+  /* 2. Center it horizontally */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* 3. Set the width so there is space on both sides */
+  width: 95%; 
+  max-width: 1600px; /* Prevents it from getting too wide on huge screens */
+  
+  /* 4. Internal Spacing */
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  
+  /* 5. The Blur & Shape */
+  background: rgba(0, 0, 0, 0.4); /* Dark see-through tint */
+  backdrop-filter: blur(12px); /* Strong blur */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border */
+  border-radius: 16px; /* Rounded corners for the floating look */
+  
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Left: Logo */
+.nav-logo {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.8rem; /* Slightly smaller to fit the bar */
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+/* Center: Links */
+.nav-center {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* Right: Button */
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+/* Mobile: Hide center links and adjust padding */
+@media (max-width: 768px) {
+  .mursee-nav {
+    width: 92%;
+    padding: 0.8rem 1.2rem;
+  }
+  .nav-center {
+    display: none;
+  }
+}
+.nav-logo-text {
+  font-family: 'Maratype', sans-serif;
+  
+  /* Make it BOLD and CHUNKY */
+  font-weight: 900; 
+  
+  /* Adjust size to fit navbar */
+  font-size: 30px; 
+  
+  /* Remove extra spacing so it looks like a tight symbol */
+  letter-spacing: -2px;
+  line-height: 1;
+  
+  color: #ffffff; /* White text */
+  text-transform: uppercase;
+  cursor: pointer; /* Shows it is clickable */
+}
