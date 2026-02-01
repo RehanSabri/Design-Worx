@@ -1,51 +1,48 @@
-/* The Floating Capsule Container */
+/* --- DESKTOP STYLES (Restored) --- */
+
 .mursee-nav {
   position: fixed;
-  
-  /* 1. Detach from the top */
-  top: 1.5rem; 
-  
-  /* 2. Center it horizontally */
+  top: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  
-  /* 3. Set the width so there is space on both sides */
-  width: 95%; 
-  max-width: 1600px; /* Prevents it from getting too wide on huge screens */
-  
-  /* 4. Internal Spacing */
+  width: 95%;
+  max-width: 1600px;
   padding: 0.8rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
   
-  /* 5. The Blur & Shape */
-  background: rgba(0, 0, 0, 0.4); /* Dark see-through tint */
-  backdrop-filter: blur(12px); /* Strong blur */
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border */
-  border-radius: 16px; /* Rounded corners for the floating look */
+  /* Glassmorphism Effect */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
   
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
-/* Left: Logo */
-.nav-logo {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.8rem; /* Slightly smaller to fit the bar */
-  color: white;
-  letter-spacing: 1px;
+/* Logo Text (DW) */
+.nav-logo-text {
+  font-family: 'Maratype', sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: #ffffff;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
-/* Center: Links */
+/* Center Links Container */
 .nav-center {
   display: flex;
   gap: 2.5rem;
 }
 
+/* Individual Links */
 .nav-link {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
@@ -60,7 +57,7 @@
   color: white;
 }
 
-/* Right: Button */
+/* Work With Us Button */
 .nav-btn {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -82,30 +79,33 @@
   border-color: white;
 }
 
-/* Mobile: Hide center links and adjust padding */
+
+/* --- MOBILE FIX --- */
+/* This section only runs on screens smaller than 768px (Phones) */
 @media (max-width: 768px) {
+  
   .mursee-nav {
     width: 92%;
     padding: 0.8rem 1.2rem;
+    /* Force the remaining content (Links) to be centered */
+    justify-content: center; 
   }
+
+  /* 1. HIDE the Logo */
+  .nav-logo-text {
+    display: none !important;
+  }
+
+  /* 2. HIDE the Button (Targeting the button's container to ensure it disappears fully) */
+  .mursee-nav > div:last-child {
+    display: none !important;
+  }
+
+  /* 3. SHOW the Center Links and center them */
   .nav-center {
-    display: none;
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
   }
-}
-.nav-logo-text {
-  font-family: 'Maratype', sans-serif;
-  
-  /* Make it BOLD and CHUNKY */
-  font-weight: 900; 
-  
-  /* Adjust size to fit navbar */
-  font-size: 30px; 
-  
-  /* Remove extra spacing so it looks like a tight symbol */
-  letter-spacing: -2px;
-  line-height: 1;
-  
-  color: #ffffff; /* White text */
-  text-transform: uppercase;
-  cursor: pointer; /* Shows it is clickable */
 }
